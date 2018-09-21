@@ -1,0 +1,108 @@
+// Copyright (C) 2018  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details.
+
+// *****************************************************************************
+// This file contains a Verilog test bench template that is freely editable to  
+// suit user's needs .Comments are provided in each section to help the user    
+// fill out necessary details.                                                  
+// *****************************************************************************
+// Generated on "09/20/2018 15:34:30"
+                                                                                
+// Verilog Test Bench template for design : control
+// 
+// Simulation tool : ModelSim (Verilog)
+// 
+
+`timescale 1 ps/ 1 ps
+module control_vlg_tst();
+// constants                                           
+// general purpose registers
+reg eachvec;
+// test vector input registers
+reg ack1;
+reg ack2;
+reg addr1;
+reg addr2;
+reg clk;
+reg req1;
+reg req2;
+reg reset;
+// wires                                               
+wire cnfg;
+wire inaddr;
+wire load;
+wire outaddr;
+
+// assign statements (if any)                          
+control i1 (
+// port map - connection between master ports and signals/registers   
+	.ack1(ack1),
+	.ack2(ack2),
+	.addr1(addr1),
+	.addr2(addr2),
+	.clk(clk),
+	.cnfg(cnfg),
+	.inaddr(inaddr),
+	.load(load),
+	.outaddr(outaddr),
+	.req1(req1),
+	.req2(req2),
+	.reset(reset)
+);
+initial                                                
+begin                                                  
+  clk <= 0;
+  reset <= 1;
+  #10 reset <= 0;                     
+   ack1 <= 0;
+   ack2 <= 0;
+   addr1 <= 0;
+   addr2 <= 0;
+   req1 <= 0;
+   req2 <= 0;
+   #10 reset <= 1;
+	#10 @(posedge clk)
+	req1 <= 1;
+	req2 <= 1;
+	addr1 <= 0;
+	addr2 <= 1;
+	#20 @(posedge clk)
+	ack1 <= 1;
+	ack2 <= 1;
+	req1 <= 0;
+	req2 <= 0;
+	#10 @(negedge cnfg)
+	req1 <= 1;
+	req2 <= 1;
+	ack1 <= 0;
+	ack2 <= 0;
+	addr1 <= 0;
+	addr2 <= 0;
+	#10 @(posedge clk)
+	ack1 <= 1;
+	req1 <= 0;
+	#5 @(posedge clk)
+	ack1 <= 0;
+   
+// --> end                                             
+$display("Running testbench");                       
+end                                                    
+always                                                 
+                
+begin                                                  
+	#5 clk <= ~clk;                                                                       
+// --> end                                             
+end                                                    
+endmodule
+

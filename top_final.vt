@@ -1,0 +1,154 @@
+// Copyright (C) 2018  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details.
+
+// *****************************************************************************
+// This file contains a Verilog test bench template that is freely editable to  
+// suit user's needs .Comments are provided in each section to help the user    
+// fill out necessary details.                                                  
+// *****************************************************************************
+// Generated on "09/20/2018 21:47:28"
+                                                                                
+// Verilog Test Bench template for design : top_final
+// 
+// Simulation tool : ModelSim (Verilog)
+// 
+
+`timescale 1 ps/ 1 ps
+module top_final_vlg_tst();
+// constants                                           
+// general purpose registers
+reg eachvec;
+// test vector input registers
+reg clk;
+reg reset;
+reg [31:0] t2_addr;
+reg t2_cmd;
+reg t2_req;
+reg [31:0] t2_wdata;
+reg [31:0] t_addr;
+reg t_cmd;
+reg t_req;
+reg [31:0] t_wdata;
+// wires                                               
+
+// assign statements (if any)                          
+top_final i1 (
+// port map - connection between master ports and signals/registers   
+	.clk(clk),
+	.reset(reset),
+	.t2_addr(t2_addr),
+	.t2_cmd(t2_cmd),
+	.t2_req(t2_req),
+	.t2_wdata(t2_wdata),
+	.t_addr(t_addr),
+	.t_cmd(t_cmd),
+	.t_req(t_req),
+	.t_wdata(t_wdata)
+);
+initial                                                
+begin                                                  
+clk <= 0;
+  reset <= 1;
+  #10 reset <= 0;
+	t2_addr<=0;
+	t2_cmd<=0;
+	t2_req<=0;
+	t2_wdata<=0;
+	t_addr<=0;
+	t_cmd<=0;
+	t_req<=0;
+	t_wdata<=0;
+#10 reset <= 1;
+#20 @(posedge clk)
+	t2_addr<=32'h80123987;
+	t2_cmd<=1;
+	t2_req<=1;
+	t2_wdata<=1342;
+	t_addr<=32'h79871234;
+	t_cmd<=0;
+	t_req<=1;
+	t_wdata<=4213;
+#10 @(posedge clk)
+	t2_addr<=0;
+	t2_cmd<=0;
+	t2_req<=0;
+	t2_wdata<=0;
+	t_addr<=0;
+	t_cmd<=0;
+	t_req<=0;
+	t_wdata<=0;
+#100 @(posedge clk)
+	t2_addr<=32'h70123987;
+	t2_cmd<=1;
+	t2_req<=1;
+	t2_wdata<=7654;
+	t_addr<=32'h79871234;
+	t_cmd<=0;
+	t_req<=1;
+	t_wdata<=4213;
+#10 @(posedge clk)
+	t2_addr<=0;
+	t2_cmd<=0;
+	t2_req<=0;
+	t2_wdata<=0;
+	t_addr<=0;
+	t_cmd<=0;
+	t_req<=0;
+	t_wdata<=0;
+#100 @(posedge clk)
+	t2_addr<=32'h80123987;
+	t2_cmd<=0;
+	t2_req<=1;
+	t2_wdata<=7654;
+	t_addr<=32'h89871234;
+	t_cmd<=1;
+	t_req<=1;
+	t_wdata<=4213;
+#10 @(posedge clk)
+	t2_addr<=0;
+	t2_cmd<=0;
+	t2_req<=0;
+	t2_wdata<=0;
+	t_addr<=0;
+	t_cmd<=0;
+	t_req<=0;
+	t_wdata<=0;
+#100 @(posedge clk)
+	t2_addr<=32'h80123987;
+	t2_cmd<=1;
+	t2_req<=1;
+	t2_wdata<=7654;
+#20 @(posedge clk)
+	t_addr<=32'h79871234;
+	t_cmd<=0;
+	t_req<=1;
+	t_wdata<=4213;
+#10 @(posedge clk)
+	t2_addr<=0;
+	t2_cmd<=0;
+	t2_req<=0;
+	t2_wdata<=0;
+	t_addr<=0;
+	t_cmd<=0;
+	t_req<=0;
+	t_wdata<=0;	
+$display("Running testbench");                       
+end                                                    
+always                                                 
+                 
+begin                                                  
+	#5 clk <= ~clk;                                             
+end                                                    
+endmodule
+
